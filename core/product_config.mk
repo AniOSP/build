@@ -440,6 +440,8 @@ ifdef PRODUCT_INSTALL_DEBUG_POLICY_TO_SYSTEM_EXT
       sure you understand the security implications before setting this \
       option. If you don't know what this option does, then you probably \
       shouldn't set this.)
+  ifeq (,$(filter %gsi_arm %gsi_arm64 %gsi_x86 %gsi_x86_64,$(PRODUCT_NAME)))
+    $(error Only GSI products are allowed to set PRODUCT_INSTALL_DEBUG_POLICY_TO_SYSTEM_EXT)
   endif
 endif
 
