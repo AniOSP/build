@@ -246,7 +246,6 @@ import ota_utils
 from ota_utils import (UNZIP_PATTERN, FinalizeMetadata, GetPackageMetadata,
                        PropertyFiles, SECURITY_PATCH_LEVEL_PROP_NAME)
 import target_files_diff
-from check_target_files_vintf import CheckVintfIfTrebleEnabled
 from non_ab_ota import GenerateNonAbOtaPackage
 
 if sys.hexversion < 0x02070000:
@@ -1101,8 +1100,6 @@ def GenerateAbOtaPackage(target_file, output_file, source_file=None):
   with zipfile.ZipFile(target_file, allowZip64=True) as zfp:
     target_info.info_dict['ab_partitions'] = zfp.read(
         AB_PARTITIONS).decode().strip().split("\n")
-
-  CheckVintfIfTrebleEnabled(target_file, target_info)
 
   # Metadata to comply with Android OTA package format.
   metadata = GetPackageMetadata(target_info, source_info)
