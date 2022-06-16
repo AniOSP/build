@@ -28,3 +28,5 @@ PRODUCT_PACKAGES += \
     StorageManager \
     SystemUI \
     WallpaperCropper \
+    vim \
+    htop
