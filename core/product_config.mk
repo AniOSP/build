@@ -590,3 +590,4 @@ $(foreach image, \
 product-build-image-config :=
 
 $(call readonly-product-vars)
+endif
